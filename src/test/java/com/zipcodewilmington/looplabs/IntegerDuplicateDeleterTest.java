@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Created by leon on 1/25/18.
  * @ATTENTION_TO_STUDENTS You are forbidden from modifying this class.
@@ -133,7 +135,22 @@ public class IntegerDuplicateDeleterTest {
     }
 
 
-
+    @Test
+    public void testMyExperiment() {
+        Integer[] array = new Integer[]{0, 0, 0, 5, 5, 5, 6, 6};
+        DuplicateDeleter<Integer> deleter = new IntegerDuplicateDeleter(array);
+        Integer[] expected = new Integer[]{6,6};
+        Integer[] actual = deleter.removeDuplicates(3);
+        TestUtils.assertArrayEquality(expected, actual);
+    }
+    @Test
+    public void testCalcNewLength() {
+        Integer[] array = new Integer[]{3,3,2};
+        DuplicateDeleter<Integer> deleter = new IntegerDuplicateDeleter(array);
+        int expected = 0;
+        int actual = deleter.calculateNewLength(array,2);
+        assertEquals(expected, actual);
+    }
 
 
 
